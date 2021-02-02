@@ -22,7 +22,8 @@
     "update-manifest": "node -e \"require('fs').copyFileSync('appsscript.json', 'dist/appsscript.json')\"",
     "update-config": "node -e \"require('fs').copyFileSync('config.js', 'dist/config.js')\"",
     "push": "npm run update-manifest && npm run update-config && clasp push",
-    "deploy": "npm-run-all build push"
+    "deploy": "npm-run-all build push",
+    "deploy-no-html": "npm-run-all clear-dist build:server push"
   },
   "dependencies": {
   },
