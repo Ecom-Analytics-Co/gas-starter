@@ -1,0 +1,57 @@
+{
+  "name": "gas-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "code.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomanalytics/gas-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ecomanalytics/gas-starter/issues"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests --coverage",
+    "clear-dist": "del-cli \"dist/**\"",
+    "only-html": "del-cli \"dist/**.!(html)\"",
+    "build:html": "npm run concat-js && parcel build src/html/index.html --no-source-maps --no-minify --no-cache && npm run only-html",
+    "remove-exports": "replace-in-file --configFile=replace-config.js --verbose",
+    "build:server": "cpy src/server/**/* dist/",
+    "build": "npm-run-all clear-dist build:*",
+    "local": "webpack-dev-server --config ./client/webpack.dev.js --open",
+    "concat-js": "concat-glob-cli -f src/html/!(*bundled).js -o src/html/bundled.js",
+    "update-manifest": "node -e \"require('fs').copyFileSync('appsscript.json', 'dist/appsscript.json')\"",
+    "update-config": "node -e \"require('fs').copyFileSync('config.js', 'dist/config.js')\"",
+    "push": "npm run update-manifest && npm run update-config && clasp push",
+    "deploy": "npm-run-all build push"
+  },
+  "dependencies": {
+    "concat-glob-cli": "^0.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@types/google-apps-script": "^1.0.20",
+    "@types/google.script.client-side": "^0.1.0",
+    "@types/materialize-css": "^1.0.8",
+    "babel-jest": "^26.6.3",
+    "cpy-cli": "^3.1.1",
+    "del-cli": "^3.0.1",
+    "dotenv": "^8.2.0",
+    "husky": "^4.3.8",
+    "jest": "^26.6.3",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-inliner": "^1.0.14",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "pretty-quick": "^3.1.0",
+    "replace-in-file": "^6.1.0",
+    "sass": "^1.32.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

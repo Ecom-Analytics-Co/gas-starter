@@ -1,0 +1,5 @@
+{
+  "scriptId": "_your_gas_script_id_here_",
+  "rootDir": "dist/",
+  "filePushOrder": ["config.js"]
+}
