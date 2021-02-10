@@ -1,3 +1,6 @@
+# OS and IDE specific files or directories
+.idea/
+
 # node dependency directories
 node_modules/
 
