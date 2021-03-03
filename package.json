@@ -2,7 +2,6 @@
   "name": "_PROJECT_REPO_NAME_",
   "version": "1.0.0",
   "description": "",
-  "main": "code.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ecomanalytics/_PROJECT_REPO_NAME_.git"
