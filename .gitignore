@@ -1,7 +1,24 @@
 # OS and IDE specific files or directories
 .idea/
 
-# environment variables file
-venv/
+# node dependency directories
+node_modules/
 
-.aws-sam/
+# jest testing
+coverage/
+
+# distributables; uploaded to the GAS project
+dist/
+
+# bundled .js for HTML page
+src/html/bundled.js
+
+# clasp config and GAS project ID
+.clasp.json
+
+# dotenv environment variables file
+.env
+.env.test
+
+# configurations and file IDs
+config.js
