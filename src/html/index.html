@@ -4,26 +4,21 @@
     <base target="_top" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="index.scss" />
+    <link rel="stylesheet" href="./styles/main.scss" />
   </head>
 
   <body>
-    <header class="container"></header>
-    <main class="container">
-      <div class="section">
-        <h4>Google Apps Script</h4>
-        <p id="test-data">This is some test data</p>
-      </div>
-    </main>
-    <script src="bundled.js"></script>
+		<div class="conatiner">
+			<div class="header">
+				<h4>Simple Tables</h4>
+				<hr>
+				<h5>Choose from styles below</h5>
+				<form>
+								<input type="radio" checked /><label for="Light"><br>
+								<input type="radio" /><label for="Dark"><br>
+				</form>
+			</div>
+		</div>
+    <script src="./js/main.js"></script>
   </body>
 </html>

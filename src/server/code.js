@@ -3,8 +3,3 @@ function doGet() {
   const fileName = "index.html";
   return HtmlService.createHtmlOutputFromFile(fileName).setTitle(title);
 }
-
-function showAPIKeysEtc() {
-  console.log(API_KEY);
-  console.log(AN_OBJECT);
-}

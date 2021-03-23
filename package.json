@@ -10,41 +10,24 @@
     "url": "https://github.com/ecomanalytics/_PROJECT_REPO_NAME_/issues"
   },
   "scripts": {
-    "clear-dist": "del-cli \"dist/**\"",
-    "only-html": "del-cli \"dist/**.!(html)\"",
-    "concat-js": "concat-glob-cli -f src/html/!(*bundled).js -o src/html/bundled.js",
-    "build:html": "npm run concat-js && parcel build src/html/index.html --no-source-maps --no-minify --no-cache && npm run only-html",
-    "build:server": "cpy src/server/**/* dist/",
-    "build": "npm-run-all clear-dist build:*",
-    "update-manifest": "node -e \"require('fs').copyFileSync('appsscript.json', 'dist/appsscript.json')\"",
-    "update-config": "node -e \"require('fs').copyFileSync('config.js', 'dist/config.js')\"",
-    "push": "npm run update-manifest && npm run update-config && clasp push",
-    "deploy": "npm-run-all build push",
-    "deploy-no-html": "npm-run-all clear-dist build:server push"
+    "clean": "del-cli -f ./dist",
+    "build:client": "parcel build src/html/index.html --no-source-maps --no-cache --no-optimize",
+    "build:server": "copyfiles -a -f src/server/* ./dist",
+    "build": "npm run clean && npm run build:client && npm run build:server",
+    "push": "copyfiles config.js appsscript.json ./dist && clasp push",
+    "deploy": "npm run build && npm run push"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@google/clasp": "^2.3.0",
+    "@parcel/transformer-sass": "^2.0.0-nightly.632",
     "@types/google-apps-script": "^1.0.20",
     "@types/google.script.client-side": "^0.1.0",
-    "@types/materialize-css": "^1.0.8",
-    "concat-glob-cli": "^0.1.0",
-    "cpy-cli": "^3.1.1",
+    "copyfiles": "^2.4.1",
     "del-cli": "^3.0.1",
-    "husky": "^4.3.8",
-    "npm-run-all": "^4.1.5",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-inliner": "^1.0.14",
-    "prettier": "^2.2.1",
-    "prettier-eslint": "^12.0.0",
-    "pretty-quick": "^3.1.0",
+    "parcel": "^2.0.0-nightly.630",
     "sass": "^1.32.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }
