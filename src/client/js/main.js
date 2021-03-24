@@ -1,4 +1,3 @@
-
-document.querySelectorAll('input').forEach(i => {
-  			i.addEventListener('click', () => alert('Clicked'));
-})	
+document.querySelectorAll("input").forEach((i) => {
+  i.addEventListener("click", () => alert("Clicked"));
+});
