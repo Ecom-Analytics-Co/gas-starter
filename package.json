@@ -21,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@google/clasp": "^2.3.0",
     "@parcel/transformer-sass": "^2.0.0-nightly.632",
     "@types/google-apps-script": "^1.0.20",
     "@types/google.script.client-side": "^0.1.0",
