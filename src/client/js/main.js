@@ -1,4 +1,4 @@
 
 document.querySelectorAll('input').forEach(i => {
-  i.addEventListener('click', () => alert('Clicked'));
+  			i.addEventListener('click', () => alert('Clicked'));
 })	
