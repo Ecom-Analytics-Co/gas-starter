@@ -11,10 +11,10 @@
   },
   "scripts": {
     "clean": "del-cli -f ./dist",
-    "build:client": "parcel build src/html/index.html --no-source-maps --no-cache",
+    "build:client": "parcel build src/html/index.html --no-source-maps --no-cache --no-optimize",
     "build:server": "copyfiles -a -f src/server/* ./dist",
     "build": "npm run clean && npm run build:client && npm run build:server",
-    "push": "copyfiles config.js appscript.json ./dist && clasp push",
+    "push": "copyfiles config.js appsscript.json ./dist && clasp push",
     "deploy": "npm run build && npm run push"
   },
   "dependencies": {},
@@ -25,19 +25,9 @@
     "@parcel/transformer-sass": "^2.0.0-nightly.632",
     "@types/google-apps-script": "^1.0.20",
     "@types/google.script.client-side": "^0.1.0",
-    "@types/materialize-css": "^1.0.8",
     "copyfiles": "^2.4.1",
     "del-cli": "^3.0.1",
-    "husky": "^4.3.8",
     "parcel": "^2.0.0-nightly.630",
-    "prettier": "^2.2.1",
-    "prettier-eslint": "^12.0.0",
-    "pretty-quick": "^3.1.0",
     "sass": "^1.32.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }

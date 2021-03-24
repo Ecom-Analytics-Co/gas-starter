@@ -26,3 +26,8 @@ config.js
 # Parcel
 .parcelrc
 .parcel-cache/
+
+# Lock files
+yarn.lock
+package-lock.json
+lock.json
