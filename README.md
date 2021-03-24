@@ -36,6 +36,12 @@ npm run deploy
 ```
 
 ---
+## Creating Client App
+The boilerplate contains a simple app that can be used as a starting point. You can delete the files inside `src/client` directory and create your own app structure. Make sure it has at least on `html` file. You can add as many JavaScript files as you want.
+
+The `src/server` directory contains the server side code for the application. Add appropriate server side code in this directory.
+
+---
 
 ## Clasp Files Guide
 
