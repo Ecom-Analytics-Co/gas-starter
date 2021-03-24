@@ -13,6 +13,7 @@
     "clean": "del-cli -f ./dist",
     "build:client": "parcel build src/client/index.html --no-source-maps --no-cache",
     "build:server": "copyfiles -a -f src/server/* ./dist",
+    "prettify": "prettier --write 'src/**/*.js'",
     "build": "npm run clean && npm run build:client && npm run build:server",
     "push": "copyfiles config.js appsscript.json ./dist && clasp push",
     "deploy": "npm run build && npm run push",
@@ -33,15 +34,9 @@
     "prettier": "^2.2.1",
     "sass": "^1.32.5"
   },
-	{
-	  "scripts": {
-	    "precommit": "lint-staged"
-	  },
-	  "lint-staged": {
-	    "*.js": [
-	      "./node_modules/prettier/bin/prettier.js --tab-width 2 --write",
-	      "git add"
-	    ]
-	  }
-	}
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettify"
+    }
+  }
 }
