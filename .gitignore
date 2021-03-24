@@ -31,3 +31,6 @@ config.js
 yarn.lock
 package-lock.json
 lock.json
+
+# Hooks
+.husky/
