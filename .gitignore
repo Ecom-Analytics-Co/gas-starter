@@ -22,3 +22,7 @@ src/html/bundled.js
 
 # configurations and file IDs
 config.js
+
+# Parcel
+.parcelrc
+.parcel-cache
