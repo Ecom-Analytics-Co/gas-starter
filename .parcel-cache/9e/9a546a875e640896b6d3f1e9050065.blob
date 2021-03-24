@@ -1,0 +1,2 @@
+console.log("hello from client"),document.addEventListener("DOMContentLoaded",(function(){document.getElementById("test-data").textContent="the page has loaded!"}));
+//# sourceMappingURL=index.HASH_REF_4a5637f7239fe74f78a72765175447a8.js.map

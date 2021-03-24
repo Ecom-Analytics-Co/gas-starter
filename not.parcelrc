@@ -1,0 +1,16 @@
+{
+	"bundler": "@parcel/bundler-default",
+	"transformers": {
+		"*.{html}": [
+			"@parcel/transformer-html"
+		],
+		"*.{js,jsx,ts,tsx}": [
+			"@parcel/transformer-babel",
+			"@parcel/transformer-js"
+		],
+		"*.{scss,sass}": [
+			"@parcel/transformer-sass"
+		]
+	},
+  "resolvers": ["@parcel/resolver-default"]	
+}
