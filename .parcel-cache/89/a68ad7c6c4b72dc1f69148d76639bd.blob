@@ -1,1 +1,0 @@
-console.log("hello from client"),document.addEventListener("DOMContentLoaded",(function(){document.getElementById("test-data").textContent="the page has loaded!"}));
