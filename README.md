@@ -2,13 +2,13 @@
 
 ## Build with Google Apps Script
 
-### :package: New Project
+### :package: New Project Setup
 
 **1.** Clone the repository and install npm dependencies
 
 ```shell
-git clone https://github.com/ecomanalytics/gas-starter project-name
-cd project-name
+git clone https://github.com/ecomanalytics/gas-starter project-directory
+cd project-directory
 npm install
 ```
 
@@ -18,14 +18,19 @@ npm install
 npx clasp login
 ```
 
-**3.** Create a new Google Script bound to a Google Sheet (or set the type as standalone to create a standalone script
-in your Google Drive)
+**3.** Create a new "standalone" script project or one bound to a Google Sheet. This step creates the `.clasp.json` file.
 
 ```shell
-npx clasp create --type sheets --title "My Apps Script Project" --rootDir ./dist
+npx clasp create --title "example standalone project" --rootDir ./dist
 ```
 
-**4.** Include the necessary OAuth Scopes in the [appsscript.json](./appsscript.json) file
+```shell
+npx clasp create --type sheets --title "example attached project" --rootDir ./dist
+```
+
+More on `create` commands here: https://github.com/google/clasp#create
+
+**4.** Include the necessary OAuth Scopes in the [appsscript.json](appsscript.json) file
 
 **5.** Deploy the project
 
@@ -36,10 +41,10 @@ npm run deploy
 ```
 
 ---
-## Creating Client App
-The boilerplate contains a simple app that can be used as a starting point. You can delete the files inside `src/client` directory and create your own app structure. Make sure it has at least on `html` file. You can add as many JavaScript files as you want.
+## Directories
+The `src/` directory contains the server side code for the application. Add appropriate server side code in this directory.
 
-The `src/server` directory contains the server side code for the application. Add appropriate server side code in this directory.
+A temporary `dist/` directory will be created as part of the build and deploy process.
 
 ---
 
@@ -59,7 +64,9 @@ If you see a prompt like the above:
 2. Open the script on script.google.com (refresh if already opened) or use `clasp open`
 3. Under project settings make sure `Show "appsscript.json" manifest file in editor` is checked
 4. Go to the scripts editor on script.google.com and under Files open `appsscript.json`
-5. Copy the contents of `appsscript.json` into your local [appsscript.json](./appsscript.json) file
+5. Copy the contents of `appsscript.json` into your local [appsscript.json](appsscript.json) file
+
+Note that this warning may show even when an insignificant change, like formatting, is made
 
 #### Example minimal appsscript.json
 
@@ -91,7 +98,7 @@ More info: [Apps Script: Manifest structure](https://developers.google.com/apps-
 
 #### OAuth Scopes
 
-You can set scopes explicitly in the [appsscript.json](./appsscript.json) `appsscript.json` under the `oauthScopes`
+You can set scopes explicitly in the [appsscript.json](appsscript.json) `appsscript.json` under the `oauthScopes`
 top-level field. The "oauthScopes" field specifies an array of strings.
 
 ```json
