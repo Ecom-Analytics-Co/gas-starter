@@ -18,6 +18,8 @@ npm install
 npx clasp login
 ```
 
+Note: this might change with the resolve of this issue: https://github.com/google/clasp/issues/42
+
 **3.** Create a new "standalone" script project or one bound to a Google Sheet. This step creates the `.clasp.json` file.
 
 ```shell
@@ -39,6 +41,11 @@ The `dist` directory contains the bundled code that is pushed to Google Apps Scr
 ```shell
 npm run deploy
 ```
+
+---
+## TypeScript
+
+See [clasp/docs/typescript.md](https://github.com/google/clasp/blob/4464f73465dd9697ae22fab81c42370ca98232c6/docs/typescript.md)
 
 ---
 ## Directories
