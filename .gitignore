@@ -10,9 +10,6 @@ coverage/
 # distributables; uploaded to the GAS project
 dist/
 
-# bundled .js for HTML page
-src/html/bundled.js
-
 # clasp config and GAS project ID
 .clasp.json
 
@@ -21,7 +18,7 @@ src/html/bundled.js
 .env.test
 
 # configurations and file IDs
-config.js
+config.*
 
 # Parcel
 .parcelrc
