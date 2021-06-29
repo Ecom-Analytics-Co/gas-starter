@@ -10,7 +10,7 @@
     "url": "https://github.com/ecomanalytics/_PROJECT_REPO_NAME_/issues"
   },
   "scripts": {
-    "build": "del-cli -f ./dist && copyfiles -a -f src/* ./dist && copyfiles config.js appsscript.json ./dist",
+    "build": "del-cli -f ./dist && copyfiles -a -f src/* ./dist && copyfiles config.* appsscript.json ./dist",
     "push": "clasp push",
     "deploy": "npm run build && npm run push",
     "prepare": "husky install"
