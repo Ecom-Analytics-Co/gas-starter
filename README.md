@@ -1,14 +1,12 @@
-# Google Apps Script Development
+# Ecom Analytics Co Google Apps Script (GAS) Development Guide
 
-## Build with Google Apps Script
+## :package: Starting A New GAS Project
 
-### :package: New Project Setup
-
-**1.** Clone the repository and install npm dependencies
+**1.** Clone this repository and install npm dependencies
 
 ```shell
-git clone https://github.com/ecomanalytics/gas-starter project-directory
-cd project-directory
+git clone https://github.com/Ecom-Analytics-Co/gas-starter <project_directory>
+cd <project_directory>
 npm install
 ```
 
@@ -18,7 +16,7 @@ npm install
 npx clasp login
 ```
 
-Note: this might change with the resolve of this issue: https://github.com/google/clasp/issues/42
+Note: this step might change with the resolve of this issue: https://github.com/google/clasp/issues/42
 
 **3.** Create a new "standalone" script project or one bound to a Google Sheet. This step creates the `.clasp.json` file.
 
