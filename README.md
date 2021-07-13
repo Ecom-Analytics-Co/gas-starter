@@ -13,6 +13,10 @@
 
 For the current Google Apps Script development best practices see: https://github.com/Ecom-Analytics-Co/gas-dev-guide
 
+## About
+
+SHORT_DESCRIPTION_OF_WHAT_THIS_PROJECT_DOES
+
 ## Local Setup
 
 ### Add the `config.py` file
