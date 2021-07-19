@@ -51,9 +51,9 @@ If you are working on an existing shared script project or manually create a new
 
 #### For a new / private script project
 
-Generally, this file is created for you via the `clasp create` command
+This file is created during the `clasp create` command. You can also follow the instructions below to re-create it for an existing script.  
 
 #### For a shared / collab script project
 
-Go go the shared projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
+Go to the shared projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
 
