@@ -25,9 +25,11 @@ In the project directory create a `config.js` file, this file is used for API ke
 
 Get the contents to use for this file on 1Password (you may need to ask for permissions to access this file): URL_TO_1PASSWORD_VAULT_GOES_HERE_AFTER_CLONING
 
-### Add the `.clasp.json` file
+### Create the `.clasp.json` file
 
-In the project directory create a `.clasp.json` file, this is a [clasp configuration file](https://github.com/google/clasp#project-settings-file-claspjson). The contents of this file is something like below. You can get the `scriptId` of an existing script project from its URL: `https://script.google.com/home/projects/1Cmz...this-is-the-script-id...fuifY/edit` or from Project Settings > IDs.
+The `clasp create` command creates a new script project in your [script.google.com > My Projects](https://script.google.com/home/my) and also creates a `.clasp.json` [clasp configuration file](https://github.com/google/clasp#project-settings-file-claspjson). For standalone projects, run the command `clasp create --type standalone`. For attached (ex. Sheets, Docs) projects, run the command `clasp create --parentId <id>` where `<id>` is the file id for the file the script is to be attached to.
+
+You can also manually create a new script project and the `.clasp.json` file the project directory. The contents of this file should be something like below. You can get the `scriptId` of an existing script project from its URL: `https://script.google.com/home/projects/1Cmz...this-is-the-script-id...fuifY/edit` or from Project Settings > IDs.
 
 ```
 {
@@ -36,5 +38,4 @@ In the project directory create a `.clasp.json` file, this is a [clasp configura
   "filePushOrder": ["config.js"]
 }
 ```
-
 
