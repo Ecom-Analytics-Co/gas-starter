@@ -23,7 +23,7 @@ SHORT_DESCRIPTION_OF_WHAT_THIS_PROJECT_DOES
 
 Run `npm install` to install the Node.js dependencies
 
-### Add the `config.py` file
+### Add the `config.js` file
 
 In the project directory create a `config.js` file, this file is used for API keys and env specific global variables, similar to a `.env` file.
 
@@ -51,9 +51,20 @@ If you are working on an existing shared script project or manually create a new
 
 #### For a new / private script project
 
-This file is created during the `clasp create` command. You can also follow the instructions below to re-create it for an existing script.  
+This file is created during the `clasp create` command. You can also follow the instructions below to re-create it for an existing script.
 
 #### For a shared / collab script project
 
 Go to the shared projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
 
+## CD set up
+
+This project uses github [actions](https://github.com/features/actions) to automatically deploy to the project upon push to `master`.
+
+You should set the following repo secrets after you set up a new project:
+
+- `PROD_CLASPRC_JSON`: the content of your `~/.clasprc.json`
+- `REPO_ACCESS_TOKEN`: a personal access token with the `repo` scope so that the github action.
+can store refreshed access tokens.
+- `PROD_SCRIPT_ID`: the id of the project.
+- `PROD_CONFIG_FILE`: the content of the prod `config.js` file.

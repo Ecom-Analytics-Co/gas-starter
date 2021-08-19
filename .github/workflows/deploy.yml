@@ -1,0 +1,83 @@
+name: Deploy Script
+
+on:
+  # allows for manual trigger
+  workflow_dispatch:
+  push:
+    branches: [master]
+  schedule:
+    # used to refresh access tokens (every Sunday at midnight)
+    - cron: "0 0 * * SUN"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # TODO: should probably figure among deps and be installed via `npm install`
+      - name: Install clasp
+        id: install-clasp
+        run: sudo npm install @google/clasp -g
+
+      - name: Write CLASPRC_JSON secret to .clasprc.json file
+        id: write-clasprc
+        run: echo "$CLASPRC_JSON_SECRET" >> ~/.clasprc.json
+        env:
+          CLASPRC_JSON_SECRET: ${{ secrets.PROD_CLASPRC_JSON }}
+
+      - name: Check clasp login status
+        id: clasp_login
+        run: clasp login --status
+
+      - name: Save current .clasprc.json contents to CLASPRC_JSON environment variable
+        id: save-clasprc
+        run: |
+          echo "CLASPRC_JSON_FILE=$(cat ~/.clasprc.json)" >> $GITHUB_ENV
+          echo "CLASPRC_JSON_SECRET=$CLASPRC_JSON_SECRET" >> $GITHUB_ENV
+        env:
+          CLASPRC_JSON_SECRET: ${{ secrets.PROD_CLASPRC_JSON }}
+
+      - name: Save updated CLASPRC_JSON environment variable to PROD_CLASPRC_JSON repo secret
+        id: set-clasprc-secret
+        if: ${{ env.CLASPRC_JSON_FILE != env.CLASPRC_JSON_SECRET  }}
+        uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: "PROD_CLASPRC_JSON"
+          value: ${{ env.CLASPRC_JSON_FILE }}
+          repository: ${{ github.repository }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Checkout repo
+        id: checkout-repo
+        if: ${{github.event_name != 'schedule' }}
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        if: ${{github.event_name != 'schedule' }}
+        with:
+          node-version: "16"
+
+      - name: Set scriptId in .clasp.json the file
+        id: set-testing-script-id
+        if: ${{ github.event_name != 'schedule' && env.SCRIPT_ID }}
+        env:
+          SCRIPT_ID: ${{ secrets.PROD_SCRIPT_ID }}
+        run: |
+          echo '{"scriptId":"${{ env.SCRIPT_ID }}","rootDir":"dist"}' > .clasp.json
+
+      - name: set content of config.js file for testing
+        id: set-testing-config-file
+        if: ${{ github.event_name != 'schedule' }}
+        env:
+          CONFIG_FILE: ${{ secrets.PROD_CONFIG_FILE }}
+        run: echo "$CONFIG_FILE" > config.js
+
+      - name: install deps
+        id: npm-install
+        if: ${{ github.event_name != 'schedule' }}
+        run: npm ci
+
+      - name: Push script to scripts.google.com
+        id: clasp-push
+        if: ${{ github.event_name != 'schedule'}}
+        run: npm run deploy
