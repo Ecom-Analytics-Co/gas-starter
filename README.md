@@ -57,14 +57,17 @@ This file is created during the `clasp create` command. You can also follow the 
 
 Go to the shared projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
 
-## CD set up
+## Automatic deployment via GitHub Actions
 
-This project uses github [actions](https://github.com/features/actions) to automatically deploy to the project upon push to `master`.
+GitHub [actions](https://github.com/features/actions) may be used to automatically deploy to script.google.com upon push to `master`.
 
-You should set the following repo secrets after you set up a new project:
+### Setup
+
+Enable the workflow under **Actions** > Workflows
+
+Under **Settings** > **Secrets** set the following repo secrets:
 
 - `PROD_CLASPRC_JSON`: the content of your `~/.clasprc.json`
-- `REPO_ACCESS_TOKEN`: a personal access token with the `repo` scope so that the github action.
-can store refreshed access tokens.
-- `PROD_SCRIPT_ID`: the id of the project.
-- `PROD_CONFIG_FILE`: the content of the prod `config.js` file.
+- `REPO_ACCESS_TOKEN`: a personal access token with the `repo` scope so that the GitHub action can store refreshed access tokens
+- `PROD_SCRIPT_ID`: the id of the project
+- `PROD_CONFIG_FILE`: the content of the prod `config.js` file
