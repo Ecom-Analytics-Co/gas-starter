@@ -1,14 +1,6 @@
 {
   "name": "_PROJECT_REPO_NAME_",
   "version": "1.0.0",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ecomanalytics/_PROJECT_REPO_NAME_.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ecomanalytics/_PROJECT_REPO_NAME_/issues"
-  },
   "scripts": {
     "build": "del-cli -f ./dist && copyfiles -a -f src/* ./dist && copyfiles config.* appsscript.json ./dist",
     "push": "clasp push",

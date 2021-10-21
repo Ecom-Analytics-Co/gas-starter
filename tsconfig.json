@@ -6,7 +6,8 @@
     ],
     "target": "es6",
     "experimentalDecorators": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["@types/google-apps-script", "@types/google.script.client-side"]
   },
   "exclude": ["dist"]
 }

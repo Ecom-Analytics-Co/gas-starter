@@ -23,21 +23,21 @@ SHORT_DESCRIPTION_OF_WHAT_THIS_PROJECT_DOES
 
 Run `npm install` to install the Node.js dependencies
 
-### Add the `config.js` file
+### Add the `config.ts` file
 
-In the project directory create a `config.js` file, this file is used for API keys and env specific global variables, similar to a `.env` file.
+In the project directory create a `config.ts` file. This file is used for API keys and env specific global variables, similar to a `.env` file. The contents of this file should look something like this:
 
-Get the contents to use for this file on 1Password (you may need to ask for permissions to access this file): URL_TO_1PASSWORD_VAULT_GOES_HERE_AFTER_CLONING
+```javascript
 
-### Create the `.clasp.json` file
+```
 
-#### For a new / private script project
+The contents to use for this file are on 1Password, you may need to ask for permissions to access this file.
 
-The `clasp create` command creates a new script project in your [script.google.com > My Projects](https://script.google.com/home/my) and also creates a `.clasp.json` [clasp configuration file](https://github.com/google/clasp#project-settings-file-claspjson). For standalone projects, run the command `clasp create --type standalone`. For attached (ex. Sheets, Docs) projects, run the command `clasp create --parentId <id>` where `<id>` is the file id for the file the script is to be attached to.
+### Add the `.clasp.json` file
 
-#### For a shared / collab script project
+Add a `.clasp.json` file the project directory. This file contains the deployment config for clasp.
 
-If you are working on an existing shared script project or manually create a new script project, you can manually create the `.clasp.json` file the project directory. The contents of this file should be something like below. You can get the `scriptId` of an existing script project from its URL: `https://script.google.com/home/projects/1Cmz...this-is-the-script-id...fuifY/edit` or from Project Settings > IDs.
+The contents of this file should be something like below:
 
 ```
 {
@@ -47,15 +47,13 @@ If you are working on an existing shared script project or manually create a new
 }
 ```
 
-### Add the `appsscript.json` file, if needed
+You can get the `scriptId` of an existing script project from its URL: `https://script.google.com/home/projects/1Cmz...this-is-the-script-id...fuifY/edit` or from Project Settings > IDs.
 
-#### For a new / private script project
+More info here: https://github.com/google/clasp#project-settings-file-claspjson
 
-This file is created during the `clasp create` command. You can also follow the instructions below to re-create it for an existing script.
+### Add the `appsscript.json` file
 
-#### For a shared / collab script project
-
-Go to the shared projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
+Go to the script projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
 
 ## Automatic deployment via GitHub Actions
 

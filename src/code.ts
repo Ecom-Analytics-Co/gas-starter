@@ -1,5 +1,3 @@
-function doGet() {
-  const title = 'Google Apps Script';
-  const fileName = 'index.html';
-  return HtmlService.createHtmlOutputFromFile(fileName).setTitle(title);
+function main() {
+  console.log('hello world')
 }
