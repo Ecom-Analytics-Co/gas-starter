@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "lib": ["esnext"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "target": "es6",
     "experimentalDecorators": true,
     "esModuleInterop": true
