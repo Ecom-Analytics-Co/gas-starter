@@ -1,4 +1,4 @@
-**--- Delete this info section after cloning! ---**
+**--- 🚨 Delete this info section after cloning! 🚨 ---**
 
 * If you are cloning this repo, make sure to update everything below to be relavant for your project
 * Update the project name, URL to 1Password vault, etc.
@@ -6,10 +6,10 @@
 * Make sure the "Create the `.clasp.json` file" example is applicable
 * Remember the docs below are for the other devs that might work on this repo
 
-**--- Delete this info section after cloning! ---**
+**--- 🚨 Delete this info section after cloning! 🚨 ---**
 
 
-# Your Project Name Here
+# THE_PROJECT_NAME_HERE
 
 For the current Google Apps Script development best practices see: https://github.com/Ecom-Analytics-Co/gas-dev-guide
 
@@ -19,21 +19,21 @@ SHORT_DESCRIPTION_OF_WHAT_THIS_PROJECT_DOES
 
 ## Local Setup
 
-### `npm install`
+### ✅ Run `npm install`
 
 Run `npm install` to install the Node.js dependencies
 
-### Add the `config.ts` file
+### ✅ Add the `config.ts` file
 
 In the project directory create a `config.ts` file. This file is used for API keys and env specific global variables, similar to a `.env` file. The contents of this file should look something like this:
 
 ```javascript
-
+// SOME_CONSTANTS_HERE
 ```
 
 The contents to use for this file are on 1Password, you may need to ask for permissions to access this file.
 
-### Add the `.clasp.json` file
+### ✅ Add the `.clasp.json` file
 
 Add a `.clasp.json` file the project directory. This file contains the deployment config for clasp.
 
@@ -41,21 +41,23 @@ The contents of this file should be something like below:
 
 ```
 {
-  "scriptId": "_your_gas_script_project_id_here_",
+  "scriptId": "_YOUR_GAS_SCRIPT_PROJECT_ID_HERE_",
   "rootDir": "dist/",
   "filePushOrder": ["config.js"]
 }
 ```
 
-You can get the `scriptId` of an existing script project from its URL: `https://script.google.com/home/projects/1Cmz...this-is-the-script-id...fuifY/edit` or from Project Settings > IDs.
+You can get the `scriptId` of an existing script project from its URL: `https://script.google.com/home/projects/1Cmz...THIS-IS-THE-SCRIPT-ID...fuifY/edit` or from Project Settings > IDs.
 
 More info here: https://github.com/google/clasp#project-settings-file-claspjson
 
-### Add the `appsscript.json` file
+### ✅ If missing, add the `appsscript.json` file
+
+If the `appsscript.json` file is not already part of the repo:
 
 Go to the script projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
 
-## Automatic deployment via GitHub Actions
+## (Work in Progress) Automatic deployment via GitHub Actions
 
 GitHub [actions](https://github.com/features/actions) may be used to automatically deploy to script.google.com upon push to `master`.
 
