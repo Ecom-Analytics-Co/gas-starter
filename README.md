@@ -1,4 +1,4 @@
-#🚨 Delete this info section after cloning! 🚨
+# 🚨 Delete this info section after cloning! 🚨
 
 * Remember the docs below are for the other devs that might work on this project in the future
 * If you are cloning this repo, make sure to update everything below to be relevant for the project
@@ -6,7 +6,25 @@
 * Leave the link to the best practices, maybe consider adding to them
 * Make sure the "Create the `.clasp.json` file" example is applicable
 
-**👆 Delete this info section after cloning! 👆**
+### ✅ Purge commits history on the newly cloned repo
+This is to disassociate the cloned repo from its source repo
+
+```shell
+# Check out to a temporary branch:
+git checkout --orphan TEMP_BRANCH
+# Add all the files:
+git add -A
+# Commit the changes:
+git commit -am "Initial commit"
+# Delete the old branch:
+git branch -D master
+# Rename the temporary branch to master:
+git branch -m master
+# Finally, force update to the repository:
+git push -f origin master
+```
+
+**🚨 👆 Delete the above info section after cloning! 👆 🚨**
 
 
 # THE_PROJECT_NAME_HERE
@@ -15,7 +33,7 @@ For the current Google Apps Script development best practices see: https://githu
 
 ## About
 
-SHORT_DESCRIPTION_OF_WHAT_THIS_PROJECT_DOES
+👉 SHORT_DESCRIPTION_OF_WHAT_THIS_PROJECT_DOES
 
 ## Local Setup
 
@@ -56,12 +74,3 @@ More info here: https://github.com/google/clasp#project-settings-file-claspjson
 If the `appsscript.json` file is not already part of the repo:
 
 Go to the script projects Project Settings and make sure "Show "appsscript.json" manifest file in editor" is checked. Create the `appsscript.json` file in the project directory and copy over the contents of the editor's `appsscript.json` file to your local one.
-
-## For Reference - Can Delete After Cloning
-
-### Automatic deployment via GitHub Actions
-
-GitHub [actions](https://github.com/features/actions) may be used to automatically deploy to script.google.com upon push to `master`.
-
-* https://github.com/ericanastas/deploy-google-app-script-action
-* https://gist.github.com/dimitri-vs/a59b76ef9802129e9d574986de5df220
